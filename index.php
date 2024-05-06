@@ -1,6 +1,6 @@
-<?php
-    session_start();
-?>
+<!-- <?php
+    // session_start();
+?> -->
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -15,8 +15,8 @@
     <title>Sistema de Banco de Horas</title>
 
     <!-- Folha de estilo CSS -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/reset.css">
 </head>
 <body>
 
