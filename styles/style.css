@@ -1,3 +1,14 @@
+html {
+    height: 100%;
+}
+
+body {
+    /*background: #496451;*/
+    background: #496451;
+    background: linear-gradient(180deg, #496451 0%, #489f60 100%); 
+    /*background: linear-gradient(180deg, #496451 0%, #489f60 100%);*/
+}
+
 .screen {
     /*background-color: #E3EAE2;
     display: flex;
@@ -49,4 +60,10 @@
     font-weight: 600;
     font-size: 14px;
     cursor: pointer;
+}
+
+.error {
+    text-align: center;
+    color: #8c243b;
+    padding-top: 30px;
 }

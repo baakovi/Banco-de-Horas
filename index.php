@@ -1,6 +1,24 @@
-<!-- <?php
-    // session_start();
-?> -->
+<?php
+    session_start();
+    include './conn/connection.php';
+
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+        $username = mysqli_real_escape_string($connection, $_POST['username']);
+        $password = $_POST['password'];
+
+        $sql = "SELECT id FROM superior WHERE username = '$username' AND password = '$password'";
+        $result = $connection->query($sql);
+
+        if ($result->num_rows == 1) {
+            session_regenerate_id();
+            $_SESSION['username'] = $username;
+            header('Location: ./screens/welcome.php');
+        } else {
+            $error = "<h2 class='error'>Seu nome de usuário ou senha está inválido</h2>";
+            echo $error;
+        }
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -14,7 +32,6 @@
 
     <title>Sistema de Banco de Horas</title>
 
-    <!-- Folha de estilo CSS -->
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/reset.css">
 </head>
@@ -24,16 +41,16 @@
         
         <div class="forms">
             <h1>Bem-vindo de volta,</h1>
-            <form action="login.php" method="POST">
-                <label for="email">Login</label>
+            <form action="" method="POST">
+                <label for="username">Login</label>
                 <br>
-                <input type="email" id="email" name="email" placeholder="Insira seu login corporativo">
+                <input type="text" id="username" name="username" placeholder="Insira seu login corporativo">
                 <br>
                 <label for="password">Senha</label>
                 <br>
                 <input type="password" id="password" name="password" placeholder="Insira sua senha">
                 <br>
-                <input type="submit" name="submit" value="Enviar">
+                <input type="submit" name="submit" value="Login">
             </form>
         </div>
 
