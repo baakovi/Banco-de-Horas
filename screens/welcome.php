@@ -5,26 +5,27 @@
         header('Location: ../index.php');
         exit;
     }
+
+    include '../conn/connection.php';
+
+    if (isset($_POST['submit']) && !empty($_POST['submit'])) {
+        $func = $_POST['func'];
+        $nasc = $_POST['nasc'];
+        $function = $_POST['function'];
+
+        if (!empty($func) && !empty($nasc) && !empty($function)) {
+            $sql = "INSERT INTO funcionarios(nome, data_nascimento, funcao)
+            VALUES('$func', '$nasc', '$function')";
+            $connection->query($sql);
+            $connection->close();
+            session_regenerate_id();
+            header('Location: welcome.php');
+        } else {
+            $error = "Parâmetros vazios! Insira corretamente cada parte.";
+            echo $error;
+        }
+    }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Funcionários</title>
-
-    <link rel="stylesheet" href="../styles/reset.css">
-</head>
-<body>
-
-    <header>
-        <nav></nav>
-    </header>
-
-    <h1>Bem vindo(a), <?php echo htmlspecialchars($_SESSION['username']); ?>.</h1>
-
-    <a href="../conn/logout.php">Logout</a>
 
 <!doctype html>
 
@@ -33,15 +34,76 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="../assets/icon/briefcase-solid.svg" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     
     <title>Cadastro de Funcionários</title>
 
     <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/welcome.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
-    <body>
-        <h1>Hello, world!</h1>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    </body>
+<body>
+
+    <?php include 'header.php' ?>
+
+    <!-- <h1>Hello, world!</h1> -->
+
+    <main>
+        <div>
+
+            <h1>Olá, <?php echo htmlspecialchars($_SESSION['username']); ?></h1>
+    
+            <hr class="hr-new">
+
+        </div>
+
+        <div class="form-cadastro">
+
+            <form action="" method="POST">
+
+                <div>
+                    <h3 class="text-cadastro">Cadastro de Novos Funcionários</h3>
+                </div>
+
+                <div class="values">
+
+                    <div>
+                        <label for="func">Insira o nome do Novo Funcionário</label>
+                        <input type="text" name="func" id="func" required>
+                    </div>
+
+                    <div>
+                        <label for="nasc">Insira a data de nascimento</label>
+                        <input type="date" name="nasc" id="nasc" required>
+                    </div>
+
+                    <div>
+                        <label for="function">Insira a função deste funcionário</label>
+                        <input type="text" name="function" id="function" required>
+                    </div>
+
+                </div>
+
+                <div>
+                    <input type="submit" name="submit" class="btn btn-success new-button" value="Cadastrar novo funcionário">
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+    <!-- <h1>Bem vindo(a), <?php // echo htmlspecialchars($_SESSION['username']); ?>.</h1> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</body>
 </html>

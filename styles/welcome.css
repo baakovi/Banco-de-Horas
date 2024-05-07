@@ -1,0 +1,16 @@
+.text-cadastro {
+    font-weight: 700;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    padding: 20px;
+}
+
+.new-button, .hr-new {
+    width: 100%;
+}

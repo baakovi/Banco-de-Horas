@@ -2,7 +2,7 @@
 
 <div>
 
-<img src="./assets/login_page.png" alt="Página inicial de login do sistema" />
+<img src="./assets/template/login_page.png" alt="Página inicial de login do sistema" />
 
 <br>
 
@@ -42,6 +42,16 @@
     <br>
     <li><code>connect_error</code>: retorna uma descrição/mensagem do último erro da tentativa de conexão. Não possui parâmetros. O valor retornado caso <b>true</b> é uma string que descreve o erro; <b>null</b> é retornado se nenhum erro tiver ocorrido.</li>
     <br>
+    <li><code>close</code>: Fecha uma conexão de banco de dados aberta anteriormente. Agora na versão do PHP 8 esta função sempre retorna <i>true</i>. Anteriormente retornava <i>false</i> em caso de falha.</li>
+    <br>
+    <li><code>date_diff</code>: </li>
+    <br>
+    <li><code>DateTime</code>: </li>
+    <br>
+    <li><code>DateTimeInterface</code>: </li>
+    <br>
+    <li><code>createFromFormat</code>: </li>
+    <br>
     <li></li>
     <br>
     <li></li>
@@ -68,13 +78,13 @@
     <br>
     <li><a href="https://www.php.net/manual/pt_BR/mysqli.connect-error.php">mysqli_connect_error</a> by <b>php.net</b></li>
     <br>
-    <li><a href=""></a></li>
+    <li><a href="https://www.php.net/manual/pt_BR/language.operators.logical.php">Operadores Lógicos</a> by <b>php.net</b></li>
     <br>
-    <li><a href=""></a></li>
+    <li><a href="https://getbootstrap.com/">Booststrap Docs</a> by <b>Bootstrap</b></li>
     <br>
-    <li><a href=""></a></li>
+    <li><a href="https://www.alura.com.br/artigos/manipulando-datas-e-horarios-com-php">Manipulando datas e horários com PHP</a> by <b>Alura</b></li>
     <br>
-    <li><a href=""></a></li>
+    <li><a href="https://www.php.net/manual/en/function.date.php">date</a> by <b>php.net</b></li>
     <br>
     <li><a href=""></a></li>
     <br>

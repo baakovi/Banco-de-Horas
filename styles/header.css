@@ -1,0 +1,12 @@
+.navbar {
+    background-color: #487856;
+}
+
+.navbar-nav {
+    background-color: rgba(0, 0, 0, 0.137);
+    border-radius: 10px;
+}
+
+.nav-item {
+    padding-right: 10px;
+}
