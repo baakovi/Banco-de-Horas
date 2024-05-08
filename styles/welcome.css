@@ -1,16 +1,32 @@
 .text-cadastro {
     font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #25793d;
 }
 
-main {
+main .main-cadastro {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
-    gap: 5px;
+    gap: 16px;
     padding: 20px;
 }
 
 .new-button, .hr-new {
     width: 100%;
+}
+
+.new-button {
+    margin-top: 20px;
+}
+
+.input-cadastro {
+    border: 1px solid #afafaf;
+    border-radius: 4px;
+    width: 40%;
+    padding: 4px;
+    font-size: 14px;
+    margin: 8px;
 }

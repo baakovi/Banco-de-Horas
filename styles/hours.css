@@ -1,0 +1,21 @@
+.table-div {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.table-all tr td {
+    padding: 6px;
+}
+
+.table-div table, .title-table, .info-table td {
+    border: 1px solid #d4d4d4;
+}
+
+.title-table {
+    font-weight: 600;
+}
+
+.info-table td {
+    font-family: "Arimo", sans-serif;
+}

@@ -44,13 +44,13 @@
     <br>
     <li><code>close</code>: Fecha uma conexão de banco de dados aberta anteriormente. Agora na versão do PHP 8 esta função sempre retorna <i>true</i>. Anteriormente retornava <i>false</i> em caso de falha.</li>
     <br>
-    <li><code>date_diff</code>: </li>
+    <li><code>createFromFormat</code>: Interpreta uma string de data/hora de acordo com um formato especificado. Retorna um novo objeto <i>DateTime</i> representando a data e a hora especificadas pelo string <b>datetime</b>, que foi formatado de acordo com o parâmetro <b>format</b> fornecido.</li>
     <br>
-    <li><code>DateTime</code>: </li>
+    <li><code>DateTime</code>: representação de data e hora.</li>
     <br>
-    <li><code>DateTimeInterface</code>: </li>
+    <li><code>fetch_array()</code>: recebe uma linha de dados do conjunto de resultados e retorna-a como um array, <i>null</i> se não houver mais linhas no resultado, ou <i>false</i> em caso de falha.</li>
     <br>
-    <li><code>createFromFormat</code>: </li>
+    <li><code>INNER JOIN</code>: retornar os registros que tenham correspondência nas duas tabelas presentes na junção.</li>
     <br>
     <li></li>
     <br>
@@ -86,9 +86,9 @@
     <br>
     <li><a href="https://www.php.net/manual/en/function.date.php">date</a> by <b>php.net</b></li>
     <br>
-    <li><a href=""></a></li>
+    <li><a href="https://www.w3schools.com/php/func_date_create_from_format.asp">PHP date_create_from_format() Function</a> by <b>w3Schools</b></li>
     <br>
-    <li><a href=""></a></li>
+    <li><a href="https://www.php.net/manual/pt_BR/mysqli-result.fetch-array.php">mysqli_fetch_array</a> by <b>php.net</b></li>
     <br>
     <li><a href=""></a></li>
     <br>

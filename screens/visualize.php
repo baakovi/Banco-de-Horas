@@ -4,10 +4,21 @@
 
     session_start();
 
+    include '../conn/connection.php';
+
     if (!isset($_SESSION['username'])) {
         header('Location: ../index.php');
         exit;
     }
+
+    $visual = "SELECT * FROM banco_de_horas";
+    $conn = $connection->query($visual) or die ($connection->error);
+
+    // Cálculo das horas
+    $total = (strtotime($conn['saida_1']) - strtotime($conn['entrada_1'])) + (strtotime($conn['saida_2']) - strtotime($conn['entrada_2']));
+
+    // Encontra as horas trabalhadas
+    // $hours = floor();
 
 ?>
 
@@ -42,6 +53,45 @@
             $hoje = new DateTime('now');
             echo "Hoje é dia " . $hoje->format('d/m/Y H:i');
         ?></p>
+
+
+        <p class="text-center"><?php
+
+        $entrada = new DateTime('09:00');
+        $saida = new DateTime('18:00');
+        $intervalo = $saida->diff($entrada);
+        print_r($intervalo);
+        ?></p>
+
+        <p>
+
+            <?php 
+                $timezone = new DateTimeZone('America/Sao_Paulo');
+                $agora = new DateTime('now', $timezone);
+                
+                // print_r(DateTimeZone::listIdentifiers());
+
+                $umDia = new DateInterval('P1D'); // Intervalo de 1 dia
+                // Com DateTime:
+                $hoje = new DateTime();
+                echo $hoje->format('d/m'); // Saída 20/03
+                echo "<br>";
+                $hoje->add($umDia); // Altera o valor de $hoje
+                echo $hoje->format('d/m'); // Saída 21/03
+                echo "<br>";
+
+                // Com DateTimeImmutable
+                $hoje = new DateTimeImmutable();
+                echo $hoje->format('d/m'); // Saída 20/03
+                echo "<br>";
+                $amanha = $hoje->add($umDia); // Não altera o valor de $hoje
+                echo $hoje->format('d/m'); // Saída 20/03
+                echo "<br>";
+                echo $amanha->format('d/m'); // Saída 21/03
+                echo "<br>";
+            ?>
+
+        </p>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

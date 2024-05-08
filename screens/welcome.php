@@ -20,6 +20,7 @@
             $connection->close();
             session_regenerate_id();
             header('Location: welcome.php');
+            $message = "Funcionário cadastrado com sucesso!";
         } else {
             $error = "Parâmetros vazios! Insira corretamente cada parte.";
             echo $error;
@@ -55,52 +56,66 @@
     <!-- <h1>Hello, world!</h1> -->
 
     <main>
-        <div>
+        <div class="main-cadastro">
+            <div>
 
-            <h1>Olá, <?php echo htmlspecialchars($_SESSION['username']); ?></h1>
-    
-            <hr class="hr-new">
+                <h1 class="pt-5">Olá, <?php echo htmlspecialchars($_SESSION['username']); ?></h1>
+        
+                <hr class="hr-new">
 
-        </div>
+            </div>
 
-        <div class="form-cadastro">
+            <form class="forms-cadastro" action="" method="POST">
 
-            <form action="" method="POST">
-
-                <div>
-                    <h3 class="text-cadastro">Cadastro de Novos Funcionários</h3>
-                </div>
-
-                <div class="values">
+                <div class="forms-div">
 
                     <div>
-                        <label for="func">Insira o nome do Novo Funcionário</label>
-                        <input type="text" name="func" id="func" required>
+                        <h3 class="text-cadastro">Cadastro de Novos Funcionários</h3>
                     </div>
+
+                    <div class="values">
+
+                        <div>
+                            <label for="func">Insira o nome do Novo Funcionário</label>
+                            <input type="text" name="func" id="func" class="input-cadastro" required>
+                        </div>
+
+                        <div>
+                            <label for="nasc">Insira a data de nascimento</label>
+                            <input type="date" name="nasc" id="nasc" class="input-cadastro" required>
+                        </div>
+
+                        <div>
+                            <label for="function">Insira a função deste funcionário</label>
+                            <input type="text" name="function" id="function" class="input-cadastro" required>
+                        </div>
+
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                            <label class="form-check-label" for="invalidCheck">
+                                Aceite os termos e condições.
+                            </label>
+                            
+                            <div class="invalid-feedback">
+                                You must agree before submitting.
+                            </div>
+                        </div>
+                    </div>
+
 
                     <div>
-                        <label for="nasc">Insira a data de nascimento</label>
-                        <input type="date" name="nasc" id="nasc" required>
+                        <input type="submit" name="submit" class="btn btn-success new-button" value="Cadastrar novo funcionário">
                     </div>
 
-                    <div>
-                        <label for="function">Insira a função deste funcionário</label>
-                        <input type="text" name="function" id="function" required>
-                    </div>
-
-                </div>
-
-                <div>
-                    <input type="submit" name="submit" class="btn btn-success new-button" value="Cadastrar novo funcionário">
                 </div>
 
             </form>
 
         </div>
-
     </main>
-
-    <!-- <h1>Bem vindo(a), <?php // echo htmlspecialchars($_SESSION['username']); ?>.</h1> -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

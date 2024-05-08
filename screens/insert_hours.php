@@ -4,10 +4,15 @@
 
     session_start();
 
+    include '../conn/connection.php';
+
     if (!isset($_SESSION['username'])) {
         header('Location: ../index.php');
         exit;
     }
+
+    $consulta = "SELECT * FROM funcionarios";
+    $conn = $connection->query($consulta) or die($connection->error);
     
 ?>
 
@@ -28,6 +33,7 @@
     <title>Banco de Horas</title>
 
     <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/hours.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
@@ -36,15 +42,34 @@
     <?php include './header.php' ?>
 
     <main>
-        <p class="text-center pt-5"><?php echo "Em produção..." ?></p>
 
-        <p class="text-center"><?php
+        <div class="table-div">
+        
 
-            $entrada = new DateTime('09:00');
-            $saida = new DateTime('18:00');
-            $intervalo = $saida->diff($entrada);
-            print_r($intervalo);
-        ?></p>
+            <table class="table-all">
+
+                <tr class="title-table text-center">
+                    <td>ID do Funcionário</td>
+                    <td>Nome</td>
+                    <td>Data de Nascimento</td>
+                    <td>Função</td>
+                </tr>
+
+                <?php while($dice = $conn->fetch_array()) { ?>
+
+                <tr class="info-table">
+                    <td><?php echo $dice['id']; ?></td>
+                    <td><?php echo $dice['nome']; ?></td>
+                    <td><?php echo date("d/m/Y", strtotime($dice['data_nascimento'])); ?></td>
+                    <td><?php echo $dice['funcao']; ?></td>
+                </tr>
+
+                <?php } ?>
+
+            </table>
+
+        </div>
+        
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
