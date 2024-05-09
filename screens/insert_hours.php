@@ -11,8 +11,11 @@
         exit;
     }
 
-    $consulta = "SELECT * FROM funcionarios";
+    $consulta = "SELECT nome FROM funcionarios";
     $conn = $connection->query($consulta) or die($connection->error);
+
+    $bancoDeHoras = "SELECT * FROM banco_de_horas";
+    $connTwo = $connection->query($bancoDeHoras) or die($connection->error);
     
 ?>
 
@@ -34,6 +37,7 @@
 
     <link rel="stylesheet" href="../styles/reset.css">
     <link rel="stylesheet" href="../styles/hours.css">
+    <link rel="stylesheet" href="../styles/welcome.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
@@ -45,7 +49,6 @@
 
         <div class="table-div">
         
-
             <table class="table-all">
 
                 <tr class="title-table text-center">
@@ -54,8 +57,8 @@
                     <td>Data de Nascimento</td>
                     <td>Função</td>
                 </tr>
-
-                <?php while($dice = $conn->fetch_array()) { ?>
+<!-- 
+                <?php // while($dice = $conn->fetch_array()) { ?>
 
                 <tr class="info-table">
                     <td><?php echo $dice['id']; ?></td>
@@ -64,13 +67,102 @@
                     <td><?php echo $dice['funcao']; ?></td>
                 </tr>
 
-                <?php } ?>
+                <?php // } ?> -->
 
             </table>
 
         </div>
+
+        <div class="teste">
+
+            <form action="" method="POST">
+
+                <div>
+
+                    <div class="select-option">
+
+                        <label for="name-select">Choose a name</label>
+
+                        <select name="names" id="name-select">
+                            <option value="">Escolha um Funcionário</option>
+                            <?php while($opt = $conn->fetch_array()) { ?>
+
+                            <option value="names"><?php echo $opt['nome']; ?></option>
+                            
+                            <?php }
+                            
+                            if (isset($_POST['submit']) && !empty($_POST['submit'])) {
+                                echo $opt;
+                            }?>
+                        </select>
+
+                    </div>
+
+                    <input type="submit" name="submit" value="Print Nome" >
+
+                </div>
+
+            </form>
+
+        </div>
         
     </main>
+
+    <main>
+        <div class="main-cadastro">
+
+            <form class="forms-cadastro" action="" method="POST">
+
+                <div class="forms-div">
+
+                    <div>
+                        <h3 class="text-cadastro">Cadastro de Banco de Horas</h3>
+                    </div>
+
+                    <div class="values">
+
+                        <div>
+                            <label for="func">Insira o nome do Novo Funcionário</label>
+                            <input type="text" name="func" id="func" class="input-cadastro" required>
+                        </div>
+
+                        <div>
+                            <label for="nasc">Insira a data de nascimento</label>
+                            <input type="date" name="nasc" id="nasc" class="input-cadastro" required>
+                        </div>
+
+                        <div>
+                            <label for="function">Insira a função deste funcionário</label>
+                            <input type="text" name="function" id="function" class="input-cadastro" required>
+                        </div>
+
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                            <label class="form-check-label" for="invalidCheck">
+                                Aceite os termos e condições.
+                            </label>
+                            
+                            <div class="invalid-feedback">
+                                You must agree before submitting.
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div>
+                        <input type="submit" name="submit" class="btn btn-success new-button" value="Cadastrar novo funcionário">
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+    </main>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

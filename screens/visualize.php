@@ -1,5 +1,3 @@
-<!-- Lógica para visualizar o banco de horas de cada funcionário -->
-
 <?php
 
     session_start();
@@ -18,7 +16,16 @@
     $total = (strtotime($conn['saida_1']) - strtotime($conn['entrada_1'])) + (strtotime($conn['saida_2']) - strtotime($conn['entrada_2']));
 
     // Encontra as horas trabalhadas
-    // $hours = floor();
+    $hours = floor($total / 60 / 60);
+
+    // Encontra os minutos trabalhados
+    $minutes = round(($total - ($hours * 60 * 60)) / 60);
+
+    // Formatar hora e minuto para ficar no formato de 2 números - Exemplo: 00
+    $hours = str_pad($hours, 2, "0", STR_PAD_LEFT);
+    $minutes = str_pad($minutes, 2, "0", STR_PAD_LEFT);
+
+    echo $hours . ":" . $minutes;
 
 ?>
 
@@ -49,47 +56,7 @@
     <main>
         <p class="text-center p-5"><?php echo "Em produção..." ?></p>
 
-        <p class="text-center"><?php
-            $hoje = new DateTime('now');
-            echo "Hoje é dia " . $hoje->format('d/m/Y H:i');
-        ?></p>
 
-
-        <p class="text-center"><?php
-
-        $entrada = new DateTime('09:00');
-        $saida = new DateTime('18:00');
-        $intervalo = $saida->diff($entrada);
-        print_r($intervalo);
-        ?></p>
-
-        <p>
-
-            <?php 
-                $timezone = new DateTimeZone('America/Sao_Paulo');
-                $agora = new DateTime('now', $timezone);
-                
-                // print_r(DateTimeZone::listIdentifiers());
-
-                $umDia = new DateInterval('P1D'); // Intervalo de 1 dia
-                // Com DateTime:
-                $hoje = new DateTime();
-                echo $hoje->format('d/m'); // Saída 20/03
-                echo "<br>";
-                $hoje->add($umDia); // Altera o valor de $hoje
-                echo $hoje->format('d/m'); // Saída 21/03
-                echo "<br>";
-
-                // Com DateTimeImmutable
-                $hoje = new DateTimeImmutable();
-                echo $hoje->format('d/m'); // Saída 20/03
-                echo "<br>";
-                $amanha = $hoje->add($umDia); // Não altera o valor de $hoje
-                echo $hoje->format('d/m'); // Saída 20/03
-                echo "<br>";
-                echo $amanha->format('d/m'); // Saída 21/03
-                echo "<br>";
-            ?>
 
         </p>
     </main>

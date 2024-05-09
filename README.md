@@ -52,7 +52,7 @@
     <br>
     <li><code>INNER JOIN</code>: retornar os registros que tenham correspondência nas duas tabelas presentes na junção.</li>
     <br>
-    <li></li>
+    <li><code>CONSTRAINT</code>: regras aplicadas ao banco de dados que permite que você configure as características de uma determinada coluna, com valores como: NOT NULL, UNIQUE, CHECK, PRIMARY KEY, FOREIGN KEY.</li>
     <br>
     <li></li>
 </ul>
@@ -90,7 +90,7 @@
     <br>
     <li><a href="https://www.php.net/manual/pt_BR/mysqli-result.fetch-array.php">mysqli_fetch_array</a> by <b>php.net</b></li>
     <br>
-    <li><a href=""></a></li>
+    <li><a href="https://www.hashtagtreinamentos.com/constraints-no-sql?gad_source=1&gclid=EAIaIQobChMI-s7_1NiAhgMVb43CCB0h8QpPEAAYASAAEgL-kPD_BwE">Constraints no SQL – O que são e Por Que Você Deve Usá-las?</a> by <b>Hashtag Treinamentos</b></li>
     <br>
 </ol>
 
