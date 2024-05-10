@@ -9,23 +9,26 @@
         exit;
     }
 
-    $visual = "SELECT * FROM banco_de_horas";
-    $conn = $connection->query($visual) or die ($connection->error);
+    $consulta = "SELECT * FROM funcionarios";
+    $conn = $connection->query($consulta) or die($connection->error);
+
+    // $visual = "SELECT * FROM banco_de_horas";
+    // $conn = $connection->query($visual) or die ($connection->error);
 
     // Cálculo das horas
-    $total = (strtotime($conn['saida_1']) - strtotime($conn['entrada_1'])) + (strtotime($conn['saida_2']) - strtotime($conn['entrada_2']));
+    // $total = (strtotime($conn['saida_1']) - strtotime($conn['entrada_1'])) + (strtotime($conn['saida_2']) - strtotime($conn['entrada_2']));
 
     // Encontra as horas trabalhadas
-    $hours = floor($total / 60 / 60);
+    // $hours = floor($total / 60 / 60);
 
     // Encontra os minutos trabalhados
-    $minutes = round(($total - ($hours * 60 * 60)) / 60);
+    // $minutes = round(($total - ($hours * 60 * 60)) / 60);
 
     // Formatar hora e minuto para ficar no formato de 2 números - Exemplo: 00
-    $hours = str_pad($hours, 2, "0", STR_PAD_LEFT);
-    $minutes = str_pad($minutes, 2, "0", STR_PAD_LEFT);
+    // $hours = str_pad($hours, 2, "0", STR_PAD_LEFT);
+    // $minutes = str_pad($minutes, 2, "0", STR_PAD_LEFT);
 
-    echo $hours . ":" . $minutes;
+    // echo $hours . ":" . $minutes;
 
 ?>
 
@@ -46,6 +49,7 @@
     <title>Visualizar Funcionários</title>
 
     <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/visualize.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
@@ -56,7 +60,31 @@
     <main>
         <p class="text-center p-5"><?php echo "Em produção..." ?></p>
 
+        <div class="table-div">
+        
+        <table class="table-all">
 
+            <tr class="title-table text-center">
+                <td>ID do Funcionário</td>
+                <td>Nome</td>
+                <td>Data de Nascimento</td>
+                <td>Função</td>
+            </tr>
+
+            <?php while($dice = $conn->fetch_array()) { ?>
+
+            <tr class="info-table">
+                <td><?php echo $dice['id']; ?></td>
+                <td><?php echo $dice['nome']; ?></td>
+                <td><?php echo date("d/m/Y", strtotime($dice['data_nascimento'])); ?></td>
+                <td><?php echo $dice['funcao']; ?></td>
+            </tr>
+
+            <?php } ?>
+
+        </table>
+
+        </div>
 
         </p>
     </main>

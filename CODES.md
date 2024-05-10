@@ -55,3 +55,72 @@
         </tr>
 
     <?php // } ?>
+
+
+     // CÓDIGO 3
+         <!-- <main>
+        <div class="main-cadastro">
+
+            <form class="forms-cadastro" action="" method="POST">
+
+                <div class="forms-div">
+
+                    <div>
+                        <h3 class="text-cadastro">Cadastro de Banco de Horas</h3>
+                    </div>
+
+                    <div class="values">
+
+                        <div>
+                            <label for="func">Insira o nome do Novo Funcionário</label>
+                            <input type="text" name="func" id="func" class="input-cadastro" required>
+                        </div>
+
+                        <div>
+                            <label for="nasc">Insira a data de nascimento</label>
+                            <input type="date" name="nasc" id="nasc" class="input-cadastro" required>
+                        </div>
+
+                        <div>
+                            <label for="function">Insira a função deste funcionário</label>
+                            <input type="text" name="function" id="function" class="input-cadastro" required>
+                        </div>
+
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                            <label class="form-check-label" for="invalidCheck">
+                                Aceite os termos e condições.
+                            </label>
+                            
+                            <div class="invalid-feedback">
+                                You must agree before submitting.
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div>
+                        <input type="submit" name="submit" class="btn btn-success new-button" value="Cadastrar novo funcionário">
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+    </main> -->
+
+
+    // CÓDIGO 4
+    // $horas_trabalhadas = $_POST['horas_trabalhadas'];
+    // $descricao = $_POST['descricao'];
+    <!-- <label for="horas_trabalhadas">Horas Trabalhadas:</label>
+                    <input type="text" id="horas_trabalhadas" name="horas_trabalhadas" class="input-cadastro" required>
+                    <br>
+
+                    <label for="descricao">Descrição:</label>
+                    <input type="text" id="descricao" name="descricao" class="input-cadastro" required>
+                    <br> -->

@@ -1,5 +1,3 @@
-<!-- Lógica para inserir as horas trabalhadas dos funcionários -->
-
 <?php
 
     session_start();
@@ -11,12 +9,9 @@
         exit;
     }
 
-    $consulta = "SELECT nome FROM funcionarios";
-    $conn = $connection->query($consulta) or die($connection->error);
+    // $consulta = "SELECT * FROM funcionarios";
+    // $conn = $connection->query($consulta) or die($connection->error);
 
-    $bancoDeHoras = "SELECT * FROM banco_de_horas";
-    $connTwo = $connection->query($bancoDeHoras) or die($connection->error);
-    
 ?>
 
 <!doctype html>
@@ -36,7 +31,6 @@
     <title>Banco de Horas</title>
 
     <link rel="stylesheet" href="../styles/reset.css">
-    <link rel="stylesheet" href="../styles/hours.css">
     <link rel="stylesheet" href="../styles/welcome.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
@@ -44,123 +38,67 @@
 <body>
 
     <?php include './header.php' ?>
-
-    <main>
-
-        <div class="table-div">
         
-            <table class="table-all">
+    <main class="m-4">
 
-                <tr class="title-table text-center">
-                    <td>ID do Funcionário</td>
-                    <td>Nome</td>
-                    <td>Data de Nascimento</td>
-                    <td>Função</td>
-                </tr>
-<!-- 
-                <?php // while($dice = $conn->fetch_array()) { ?>
+        <div class="main-cadastro">
 
-                <tr class="info-table">
-                    <td><?php echo $dice['id']; ?></td>
-                    <td><?php echo $dice['nome']; ?></td>
-                    <td><?php echo date("d/m/Y", strtotime($dice['data_nascimento'])); ?></td>
-                    <td><?php echo $dice['funcao']; ?></td>
-                </tr>
+            <form action="./function/registro_horas.php" method="POST">
 
-                <?php // } ?> -->
+                <div class="forms-div">
 
-            </table>
+                    <div>
+                        <h2 class="text-cadastro">Registrando Banco de Horas</h2>
+                    </div>
 
-        </div>
-
-        <div class="teste">
-
-            <form action="" method="POST">
-
-                <div>
-
-                    <div class="select-option">
+                    <!-- <div class="select-option">
 
                         <label for="name-select">Choose a name</label>
 
                         <select name="names" id="name-select">
                             <option value="">Escolha um Funcionário</option>
-                            <?php while($opt = $conn->fetch_array()) { ?>
 
-                            <option value="names"><?php echo $opt['nome']; ?></option>
+                            <?php //while($opt = $conn->fetch_array()) { ?>
+
+                            <option value="names"><?php //echo $opt['nome']; ?></option>
                             
-                            <?php }
-                            
-                            if (isset($_POST['submit']) && !empty($_POST['submit'])) {
-                                echo $opt;
-                            }?>
+                            <?php //} ?>
                         </select>
 
-                    </div>
+                    </div> -->
 
-                    <input type="submit" name="submit" value="Print Nome" >
+                    <label for="funcionario_id">ID do Funcionário:</label>
+                    <input type="text" id="funcionario_id" name="funcionario_id" class="input-cadastro" required>
+                    <br>
 
-                </div>
+                    <label for="data">Data:</label>
+                    <input type="date" id="data" name="data" class="input-cadastro" required>
+                    <br>
 
-            </form>
+                    <label for="entrada_um">Entrada 1:</label>
+                    <input type="time" id="entrada_um" name="entrada_um" class="input-cadastro" required>
+                    <br>
 
-        </div>
-        
-    </main>
+                    <label for="entrada_dois">Saída 1:</label>
+                    <input type="time" id="entrada_dois" name="entrada_dois" class="input-cadastro" required>
+                    <br>
 
-    <main>
-        <div class="main-cadastro">
+                    <label for="saida_um">Entrada 2:</label>
+                    <input type="time" id="saida_um" name="saida_um" class="input-cadastro" required>
+                    <br>
 
-            <form class="forms-cadastro" action="" method="POST">
+                    <label for="saida_dois">Saída 2:</label>
+                    <input type="time" id="saida_dois" name="saida_dois" class="input-cadastro" required>
+                    <br>
 
-                <div class="forms-div">
-
-                    <div>
-                        <h3 class="text-cadastro">Cadastro de Banco de Horas</h3>
-                    </div>
-
-                    <div class="values">
-
-                        <div>
-                            <label for="func">Insira o nome do Novo Funcionário</label>
-                            <input type="text" name="func" id="func" class="input-cadastro" required>
-                        </div>
-
-                        <div>
-                            <label for="nasc">Insira a data de nascimento</label>
-                            <input type="date" name="nasc" id="nasc" class="input-cadastro" required>
-                        </div>
-
-                        <div>
-                            <label for="function">Insira a função deste funcionário</label>
-                            <input type="text" name="function" id="function" class="input-cadastro" required>
-                        </div>
-
-                    </div>
-
-                    <div class="col-12">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                            <label class="form-check-label" for="invalidCheck">
-                                Aceite os termos e condições.
-                            </label>
-                            
-                            <div class="invalid-feedback">
-                                You must agree before submitting.
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div>
-                        <input type="submit" name="submit" class="btn btn-success new-button" value="Cadastrar novo funcionário">
-                    </div>
+                    <input type="submit" name="submit" class="btn btn-success new-button" value="Registrar Horas">
 
                 </div>
 
             </form>
 
         </div>
+
     </main>
 
 

@@ -54,7 +54,25 @@
     <br>
     <li><code>CONSTRAINT</code>: regras aplicadas ao banco de dados que permite que você configure as características de uma determinada coluna, com valores como: NOT NULL, UNIQUE, CHECK, PRIMARY KEY, FOREIGN KEY.</li>
     <br>
-    <li></li>
+    <li><code>Charset</code>: conjunto de caracteres que vai ser utilizado</li>
+    <br>
+    <li><code>ATTR_ERRMODE</code>: </li>
+    <br>
+    <li><code>ERRMODE_EXCEPTION</code>: </li>
+    <br>
+    <li><code>ATTR_DEFAULT_FETCH_MODE</code>: </li>
+    <br>
+    <li><code>ATTR_EMULATE_PREPARES</code>: </li>
+    <br>
+    <li><code>PDOException</code>: </li>
+    <br>
+    <li><code>getMessage()</code>: </li>
+    <br>
+    <li><code>getCode()</code>: </li>
+    <br>
+    <li><code>stmt</code>: preapara uma declaração SQL para execução.</li>
+    <br>
+    <li><code></code>: </li>
 </ul>
 
 <br>
