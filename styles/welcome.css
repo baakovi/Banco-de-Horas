@@ -30,3 +30,18 @@ main .main-cadastro {
     font-size: 14px;
     margin: 8px;
 }
+
+.input-select-hours {
+    border: 1px solid #afafaf;
+    border-radius: 4px;
+    width: 45%;
+    background-color: transparent;
+    padding: 4px;
+    font-size: 14px;
+    margin: 8px;
+    color: #254b2f;
+}
+
+.select-func {
+    font-weight: 600;
+}

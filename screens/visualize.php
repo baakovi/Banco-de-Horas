@@ -9,26 +9,8 @@
         exit;
     }
 
-    $consulta = "SELECT * FROM funcionarios";
+    $consulta = "SELECT * FROM registro_horas";
     $conn = $connection->query($consulta) or die($connection->error);
-
-    // $visual = "SELECT * FROM banco_de_horas";
-    // $conn = $connection->query($visual) or die ($connection->error);
-
-    // Cálculo das horas
-    // $total = (strtotime($conn['saida_1']) - strtotime($conn['entrada_1'])) + (strtotime($conn['saida_2']) - strtotime($conn['entrada_2']));
-
-    // Encontra as horas trabalhadas
-    // $hours = floor($total / 60 / 60);
-
-    // Encontra os minutos trabalhados
-    // $minutes = round(($total - ($hours * 60 * 60)) / 60);
-
-    // Formatar hora e minuto para ficar no formato de 2 números - Exemplo: 00
-    // $hours = str_pad($hours, 2, "0", STR_PAD_LEFT);
-    // $minutes = str_pad($minutes, 2, "0", STR_PAD_LEFT);
-
-    // echo $hours . ":" . $minutes;
 
 ?>
 
@@ -58,7 +40,6 @@
     <?php include './header.php' ?>
 
     <main>
-        <p class="text-center p-5"><?php echo "Em produção..." ?></p>
 
         <div class="table-div">
         
@@ -66,18 +47,24 @@
 
             <tr class="title-table text-center">
                 <td>ID do Funcionário</td>
-                <td>Nome</td>
-                <td>Data de Nascimento</td>
-                <td>Função</td>
+                <td>Data do Ponto</td>
+                <td>Primeira Entrada</td>
+                <td>Primeira Saída</td>
+                <td>Segunda Entrada</td>
+                <td>Segunda Saída</td>
+                <td>Horas Totais</td>
             </tr>
 
             <?php while($dice = $conn->fetch_array()) { ?>
 
             <tr class="info-table">
-                <td><?php echo $dice['id']; ?></td>
-                <td><?php echo $dice['nome']; ?></td>
-                <td><?php echo date("d/m/Y", strtotime($dice['data_nascimento'])); ?></td>
-                <td><?php echo $dice['funcao']; ?></td>
+                <td><?= $dice['id_funcionario']; ?></td>
+                <td><?= date("d/m/Y", strtotime($dice['data_ponto'])); ?></td>
+                <td><?= $dice['entrada_1']; ?></td>
+                <td><?= $dice['saida_1']; ?></td>
+                <td><?= $dice['entrada_2'] ?></td>
+                <td><?= $dice['saida_2'] ?></td>
+                <td><?= $dice['horas_totais'] ?></td>
             </tr>
 
             <?php } ?>

@@ -54,25 +54,19 @@
     <br>
     <li><code>CONSTRAINT</code>: regras aplicadas ao banco de dados que permite que você configure as características de uma determinada coluna, com valores como: NOT NULL, UNIQUE, CHECK, PRIMARY KEY, FOREIGN KEY.</li>
     <br>
-    <li><code>Charset</code>: conjunto de caracteres que vai ser utilizado</li>
+    <li><code>charset</code>: (Character Sets) conjunto de caracteres codificado que vai ser utilizado na folha de estilo.</li>
     <br>
-    <li><code>ATTR_ERRMODE</code>: </li>
+    <li><code>ERRMODE_EXCEPTION</code>: além de definir o código de erro, o PDO lançará um PDOException e definirá suas propriedades para refletir o código de erro e as informações de erro, apontando o erro no script.</li>
     <br>
-    <li><code>ERRMODE_EXCEPTION</code>: </li>
+    <li><code>PDOException</code>: representa um erro levantado pelo PDO. Não se deve lançar um PDOException de dentro do código do usuário.</li>
     <br>
-    <li><code>ATTR_DEFAULT_FETCH_MODE</code>: </li>
+    <li><code>getMessage()</code>: obtém a mensagem da exceção como uma string. Apenas acontece caso tenha algum erro, mostrando a mensagem de erro.</li>
     <br>
-    <li><code>ATTR_EMULATE_PREPARES</code>: </li>
+    <li><code>getCode()</code>: obtém o código da exceção, retornando um <i>integer</i>, a linha do código que está com erro.</li>
     <br>
-    <li><code>PDOException</code>: </li>
+    <li><code>stmt</code>: prepara uma declaração SQL para execução, salvando a variável no banco de dados.</li>
     <br>
-    <li><code>getMessage()</code>: </li>
-    <br>
-    <li><code>getCode()</code>: </li>
-    <br>
-    <li><code>stmt</code>: preapara uma declaração SQL para execução.</li>
-    <br>
-    <li><code></code>: </li>
+    <li><code>str_pad</code>: preenche uma string até um determinado comprimento com outra string.</li>
 </ul>
 
 <br>
@@ -110,6 +104,9 @@
     <br>
     <li><a href="https://www.hashtagtreinamentos.com/constraints-no-sql?gad_source=1&gclid=EAIaIQobChMI-s7_1NiAhgMVb43CCB0h8QpPEAAYASAAEgL-kPD_BwE">Constraints no SQL – O que são e Por Que Você Deve Usá-las?</a> by <b>Hashtag Treinamentos</b></li>
     <br>
+    <li><a href="https://www.locaweb.com.br/ajuda/wiki/tudo-sobre-o-php-data-object-pdo-hospedagem-de-sites/">Tudo sobre o PHP Data Object PDO</a> by <b>locaweb</b></li>
+    <br>
+    <li><a href="https://blog.dbins.com.br/calcular-a-diferenca-entre-horas-utilizando-php">Calcular a diferença entre horas utilizando PHP</a> by <b>BINS</b></li>
 </ol>
 
 </div>

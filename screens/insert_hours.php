@@ -9,8 +9,8 @@
         exit;
     }
 
-    // $consulta = "SELECT * FROM funcionarios";
-    // $conn = $connection->query($consulta) or die($connection->error);
+    $consulta = "SELECT id, nome FROM funcionarios";
+    $conn = $connection->query($consulta) or die($connection->error);
 
 ?>
 
@@ -51,25 +51,21 @@
                         <h2 class="text-cadastro">Registrando Banco de Horas</h2>
                     </div>
 
-                    <!-- <div class="select-option">
+                    <div class="select-option py-2">
 
-                        <label for="name-select">Choose a name</label>
+                        <label for="funcionario_id" class="select-func">Seleção de ID</label>
 
-                        <select name="names" id="name-select">
-                            <option value="">Escolha um Funcionário</option>
+                        <select name="funcionario_id" id="funcionario_id" class="input-select-hours" required>
+                            <option>Escolha um Funcionário</option>
 
-                            <?php //while($opt = $conn->fetch_array()) { ?>
+                            <?php while($opt = $conn->fetch_array()) { ?>
 
-                            <option value="names"><?php //echo $opt['nome']; ?></option>
+                            <option value="<?=  $opt['id'] ?>"><?= $opt['id'] . " - " . $opt['nome']; ?></option>
                             
-                            <?php //} ?>
+                            <?php } ?>
                         </select>
 
-                    </div> -->
-
-                    <label for="funcionario_id">ID do Funcionário:</label>
-                    <input type="text" id="funcionario_id" name="funcionario_id" class="input-cadastro" required>
-                    <br>
+                    </div>
 
                     <label for="data">Data:</label>
                     <input type="date" id="data" name="data" class="input-cadastro" required>
@@ -79,12 +75,13 @@
                     <input type="time" id="entrada_um" name="entrada_um" class="input-cadastro" required>
                     <br>
 
-                    <label for="entrada_dois">Saída 1:</label>
-                    <input type="time" id="entrada_dois" name="entrada_dois" class="input-cadastro" required>
+                    <label for="saida_um">Saída 1:</label>
+                    <input
+                    type="time" id="saida_um" name="saida_um" class="input-cadastro" required>
                     <br>
 
-                    <label for="saida_um">Entrada 2:</label>
-                    <input type="time" id="saida_um" name="saida_um" class="input-cadastro" required>
+                    <label for="entrada_dois">Entrada 2:</label>
+                    <input type="time" id="entrada_dois" name="entrada_dois" class="input-cadastro" required>
                     <br>
 
                     <label for="saida_dois">Saída 2:</label>
