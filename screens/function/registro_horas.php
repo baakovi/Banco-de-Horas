@@ -32,7 +32,6 @@
     $entrada_dois = $_POST['entrada_dois'];
     $saida_dois = $_POST['saida_dois'];
 
-    // Cálculo de horas totais
     $total = (strtotime($saida_um) - strtotime($entrada_um)) + (strtotime($saida_dois) - strtotime($entrada_dois));
     $hours = floor($total / 60 / 60);
     $minutes = round(($total - ($hours * 60 * 60)) / 60);

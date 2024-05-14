@@ -135,3 +135,7 @@
     echo str_pad($input,  6, "___");               // produces "Alien_"
     echo str_pad($input,  3, "*");                 // produces "Alien"
     ?>
+
+    // CÓDIGO 6
+    // $consulta = "SELECT * FROM registro_horas";
+    // $conn = $connection->query($consulta) or die($connection->error);

@@ -67,6 +67,8 @@
     <li><code>stmt</code>: prepara uma declaração SQL para execução, salvando a variável no banco de dados.</li>
     <br>
     <li><code>str_pad</code>: preenche uma string até um determinado comprimento com outra string.</li>
+    <br>
+    <li><code>implode</code>: o <b>implode</b> possui dois parâmetros, a primeira contendo uma string, que é o que vai ser usado para "juntar" todos os elementos; e no segundo parâmetro, uma array.</li>
 </ul>
 
 <br>
