@@ -1,5 +1,7 @@
 <?php
 
+use function PHPSTORM_META\type;
+
     session_start();
 
     include '../conn/connection.php';
@@ -11,8 +13,15 @@
 
     if (isset($_POST['PesqEntreData'])) {
         if (!empty($_POST['PesqEntreData']) && !empty($_POST['data1']) && !empty($_POST['data2'])) {
-            $data_inicial = $_POST['data1'];
-            $data_final = $_POST['data2'];
+            $data_inicial = htmlspecialchars($_POST['data1']);
+            $data_final = htmlspecialchars($_POST['data2']);
+
+            // $data_inicial = DateTime::createFromFormat('d/m/Y', $data_inicial);
+            // $data_final = DateTime::createFromFormat('d/m/Y', $data_final);
+
+            if (!$data_inicial) {
+                echo "Não é data";
+            }
     
             session_regenerate_id();
             $consulta = "SELECT * FROM registro_horas WHERE data_ponto BETWEEN '$data_inicial' AND '$data_final' ORDER BY data_ponto";
