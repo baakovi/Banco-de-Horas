@@ -15,7 +15,7 @@
             $data_final = $_POST['data2'];
     
             session_regenerate_id();
-            $consulta = "SELECT * FROM registro_horas WHERE data_ponto BETWEEN '$data_inicial' AND '$data_final'";
+            $consulta = "SELECT * FROM registro_horas WHERE data_ponto BETWEEN '$data_inicial' AND '$data_final' ORDER BY data_ponto";
             $conn = $connection->query($consulta) or die($connection->error);
         }
 
@@ -63,9 +63,7 @@
 
 <body>
 
-    <?php 
-    include './header.php';
-    ?>
+    <?php include './header.php' ?>
 
     <main>
 
@@ -85,7 +83,7 @@
 
                 </div>
         
-                <table class="table-all">
+                <table class="table-all mb-5">
 
                     <tr class="title-table text-center">
                         <td>ID do Funcionário</td>
@@ -94,7 +92,7 @@
                         <td>Primeira Saída</td>
                         <td>Segunda Entrada</td>
                         <td>Segunda Saída</td>
-                        <td>Horas Totais</td>
+                        <td>Horas Trabalhadas</td>
                     </tr>
 
                     <?php while($dice = $conn->fetch_array()) { ?>

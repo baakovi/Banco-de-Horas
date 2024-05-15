@@ -20,6 +20,7 @@
     var_dump($dateRange);
 
     // --------------------
+    // Pequeno exercício que vi na internet: um cara vende seu carro por um acordo diversificado - no primeiro dia, a pessoa que quiser o carro paga R$0,01, e a cada dia que passa, o número dobra e a pessoa teria que pagar por 30 dias. No último dia, quanto a pessoa ia estar pagando pelo carro?
     $vlr = 0.01; // Valor do primeiro dia
     // Laço para contabilizar os 30 dias
     for ($i=1; $i<=30; $i++) {
@@ -27,10 +28,12 @@
         echo "<br>";
         echo "Dia {$i} => {$valor}"; // Imprime o valor do dia.
         $vlr = 2*$vlr; // Calculo que dobra o valor do dia anterior
+        // Resultado ==> No 30º, a pessoa iria estar pagando R$5,368,709.12
     }
 
     // --------------------
     echo "<pre>";
+    // Printa informações sobre o servidor
     print_r($_SERVER);
     echo "</pre>";
 
@@ -65,6 +68,7 @@
         'Dec' => 'Dezembro'
     );
     
+    // Printa o dia de hoje
     echo $semana["$data"] . ", {$dia} de " . $mes_extenso["$mes"] . " de {$ano}";
 
 ?>

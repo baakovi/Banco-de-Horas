@@ -22,7 +22,6 @@
 
     catch (\PDOException $e) {
         throw new \PDOException($e->getMessage(), (int)$e->getCode());
-        
     }
 
     $funcionario_id = $_POST['funcionario_id'];

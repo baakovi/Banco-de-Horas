@@ -53,8 +53,6 @@
 
     <?php include 'header.php' ?>
 
-    <!-- <h1>Hello, world!</h1> -->
-
     <main>
         <div class="main-cadastro">
             <div>

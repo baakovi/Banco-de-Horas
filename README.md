@@ -16,11 +16,13 @@
 <br>
 
 <h3>Tecnologias utilizadas:</h3>
-<img src="" alt="HTML" />
-<img src="" alt="CSS" />
-<img src="" alt="PHP" />
-<img src="" alt="MySQL" />
+<img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" alt="HTML" />
+<img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" alt="CSS" />
+<img src="https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Booststrap">
+<img src="https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white" alt="PHP" />
+<img src="https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
 
+<br>
 <br>
 
 <h2>Anotações e Estudos</h2>
@@ -71,6 +73,7 @@
     <li><code>implode</code>: o <b>implode</b> possui dois parâmetros, a primeira contendo uma string, que é o que vai ser usado para "juntar" todos os elementos; e no segundo parâmetro, uma array.</li>
 </ul>
 
+<br>
 <br>
 
 <h3>Bibliografia</h3>
