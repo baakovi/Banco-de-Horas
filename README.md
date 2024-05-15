@@ -2,16 +2,37 @@
 
 <div>
 
+## Estrutura do banco de dados
+<ul>
+    <li><b>Superior:</b> onde ele visualiza e cadastra novos funcionários, tendo acesso completo ao sistema.</li>
+    <li><b>Funcionários:</b> "controlados" e monitorados pelo superior, onde são registrados pela primeira vez no sistema e computados seu banco de horas.</li>
+    <li><b>Banco de horas:</b> tabela onde é calculado e visualizado a quantidade de horas que cada funcionário fez ao dia.</li>
+</ul>
+
+<br>
+
+### Página Inicial
+
 <img src="./assets/template/login_page.png" alt="Página inicial de login do sistema" />
 
 <br>
 
-## Estrutura do banco de dados
-<ul>
-    <li><b>Superior:</b> onde ele visualiza e cadastra novos funcionários, tendo acesso completo ao sistema.</li>
-    <li><b>Funcionários:</b> "controlados" e monitorados pelo superior, onde são registrados pela primeira vez no sistema e computados seus banco de horas.</li>
-    <li><b>Banco de horas:</b> tabela onde é calculado e visualizado a quantidade de horas que cada funcionário fez ao dia.</li>
-</ul>
+### Cadastro de Novos Funcionários
+
+<img src="./assets/template/cadastro_funcionarios.png" alt="Página de cadastro para novos funcionários" />
+
+<br>
+
+### Registro de Banco de Horas
+
+<img src="./assets/template/registro_horas.png" alt="Página para registro do banco de horas dos funcionários" />
+
+<br>
+
+### Visualização de Banco de Horas
+<p>Filtragem de data inicial e data final, mostrando como resultado a visualização do registro de banco de horas dos funcionários entre essas datas.</p>
+
+<img src="./assets/template/visualizar_horas.png" alt="Página para visualização de banco de horas baseado entre data inicial e data final" />
 
 <br>
 
