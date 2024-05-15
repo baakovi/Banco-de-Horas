@@ -1,14 +1,13 @@
-.screen {
-    /*background-color: #E3EAE2;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    width: 300px;
-    aspect-ratio: 400/500;
-    padding: 20px;
-    border-radius: 20px;
-    justify-content: center;*/
+html {
+    height: 100%;
+}
 
+body {
+    background: #496451;
+    background: linear-gradient(180deg, #496451 0%, #489f60 100%);
+}
+
+.screen {
     background-color: #e2e2e2;
     width: 450px;
     position: absolute;
@@ -49,4 +48,10 @@
     font-weight: 600;
     font-size: 14px;
     cursor: pointer;
+}
+
+.error {
+    text-align: center;
+    color: #8c243b;
+    padding-top: 30px;
 }
