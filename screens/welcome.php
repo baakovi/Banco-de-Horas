@@ -9,21 +9,29 @@
     include '../conn/connection.php';
 
     if (isset($_POST['submit']) && !empty($_POST['submit'])) {
-        $func = htmlspecialchars($_POST['func']);
-        $nasc = htmlspecialchars($_POST['nasc']);
-        $function = htmlspecialchars($_POST['function']);
+        $func = filter_input(INPUT_POST, 'func', FILTER_SANITIZE_SPECIAL_CHARS);
+        $nasc = $_POST['nasc'];
+        $function = filter_input(INPUT_POST, 'function', FILTER_SANITIZE_SPECIAL_CHARS);
 
         if (!empty($func) && !empty($nasc) && !empty($function)) {
-            $sql = "INSERT INTO funcionarios(nome, data_nascimento, funcao)
-            VALUES('$func', '$nasc', '$function')";
-            $connection->query($sql);
-            $connection->close();
             session_regenerate_id();
-            header('Location: welcome.php');
-            $message = "Funcionário cadastrado com sucesso!";
+            
+            try {
+                $sql = $connection->prepare("INSERT INTO funcionarios(nome, data_nascimento, funcao)
+                VALUES(?, ?, ?)");
+                $sql->bind_param("sss", $func, $nasc, $function);
+                $sql->execute();
+
+                $sql->close();
+                $connection->close();
+                header('Location: welcome.php');
+            }
+            catch(Exception $e) {
+                if($connection->error) echo "Error";
+            }
+
         } else {
             $error = "Parâmetros vazios! Insira corretamente cada parte.";
-            echo $error;
         }
     }
 ?>
@@ -87,7 +95,7 @@
                             <label for="function">Insira a função deste funcionário</label>
                             <input type="text" name="function" id="function" class="input-cadastro" required>
                         </div>
-
+                        
                     </div>
 
                     <div class="col-12">
@@ -106,6 +114,10 @@
 
                     <div>
                         <input type="submit" name="submit" class="btn btn-success new-button" value="Cadastrar novo funcionário">
+                    </div>
+
+                    <div>
+                        <p><?= $error; ?></p>
                     </div>
 
                 </div>
