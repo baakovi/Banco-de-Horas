@@ -13,19 +13,19 @@ use function PHPSTORM_META\type;
 
     if (isset($_POST['PesqEntreData'])) {
         if (!empty($_POST['PesqEntreData']) && !empty($_POST['data1']) && !empty($_POST['data2'])) {
-            $data_inicial = htmlspecialchars($_POST['data1']);
-            $data_final = htmlspecialchars($_POST['data2']);
-
-            // $data_inicial = DateTime::createFromFormat('d/m/Y', $data_inicial);
-            // $data_final = DateTime::createFromFormat('d/m/Y', $data_final);
-
-            if (!$data_inicial) {
-                echo "Não é data";
-            }
+            $data_inicial = $_POST['data1'];
+            $data_final = $_POST['data2'];
     
             session_regenerate_id();
-            $consulta = "SELECT * FROM registro_horas WHERE data_ponto BETWEEN '$data_inicial' AND '$data_final' ORDER BY data_ponto";
-            $conn = $connection->query($consulta) or die($connection->error);
+
+            $consulta = $connection->prepare("SELECT * FROM registro_horas WHERE data_ponto BETWEEN ? AND ? ORDER BY data_ponto");
+            // $consulta = "SELECT * FROM registro_horas WHERE data_ponto BETWEEN '$data_inicial' AND '$data_final' ORDER BY data_ponto";
+
+            $consulta->bind_param("ss", $data_inicial, $data_final);
+            $consulta->execute();
+
+            $conn = $consulta->get_result();
+            // $conn = $connection->query($consulta) or die($connection->error);
         }
 
         elseif (empty($_POST['data1']) && empty($_POST['data2'])) {

@@ -9,9 +9,9 @@
     include '../conn/connection.php';
 
     if (isset($_POST['submit']) && !empty($_POST['submit'])) {
-        $func = $_POST['func'];
-        $nasc = $_POST['nasc'];
-        $function = $_POST['function'];
+        $func = htmlspecialchars($_POST['func']);
+        $nasc = htmlspecialchars($_POST['nasc']);
+        $function = htmlspecialchars($_POST['function']);
 
         if (!empty($func) && !empty($nasc) && !empty($function)) {
             $sql = "INSERT INTO funcionarios(nome, data_nascimento, funcao)
