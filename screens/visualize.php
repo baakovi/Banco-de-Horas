@@ -1,5 +1,7 @@
 <?php
 
+use function PHPSTORM_META\type;
+
     session_start();
 
     include '../conn/connection.php';
@@ -15,8 +17,12 @@
             $data_final = $_POST['data2'];
     
             session_regenerate_id();
-            $consulta = "SELECT * FROM registro_horas WHERE data_ponto BETWEEN '$data_inicial' AND '$data_final' ORDER BY data_ponto";
-            $conn = $connection->query($consulta) or die($connection->error);
+
+            $consulta = $connection->prepare("SELECT * FROM registro_horas WHERE data_ponto BETWEEN ? AND ? ORDER BY data_ponto");
+            $consulta->bind_param("ss", $data_inicial, $data_final);
+            $consulta->execute();
+
+            $conn = $consulta->get_result();
         }
 
         elseif (empty($_POST['data1']) && empty($_POST['data2'])) {
@@ -74,9 +80,9 @@
                 <div class="input-div pb-4">
 
                     <label for="data1" class="input-div-text">Início:</label>
-                    <input type="date" id="data1" name="data1" class="input-div-data">
+                    <input type="date" id="data1" name="data1" class="input-div-data" required>
                     <label for="data2" class="input-div-text">Fim:</label>
-                    <input type="date" id="data2" name="data2" class="input-div-data">
+                    <input type="date" id="data2" name="data2" class="input-div-data" required>
                     <input type="submit" value="Pesquisar" name="PesqEntreData" class="btn btn-dark">
                     <input type="button" onclick="reloadPage()" class="btn btn-dark" value="Recarregar">
                     <?php echo "<p class='error-text'>{$error}</p>"; ?>

@@ -38,11 +38,11 @@
     $minutes = str_pad($minutes, 2, "0", STR_PAD_LEFT);
     $horas_totais = $hours . ':' . $minutes;
     
+    session_regenerate_id();
     $sql = "INSERT INTO registro_horas(id_funcionario, data_ponto, entrada_1, saida_1, entrada_2, saida_2, horas_totais) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$funcionario_id, $data, $entrada_um, $saida_um, $entrada_dois, $saida_dois, $horas_totais]);
     
-    session_regenerate_id();
     header('Location: ../insert_hours.php');
 
 ?>
