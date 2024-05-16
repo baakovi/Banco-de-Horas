@@ -95,7 +95,7 @@
                             <label for="function">Insira a função deste funcionário</label>
                             <input type="text" name="function" id="function" class="input-cadastro" required>
                         </div>
-                        
+
                     </div>
 
                     <div class="col-12">
